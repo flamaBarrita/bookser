@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    overflow-y: hidden; /* Evita desbordamientos no deseados */
+}
+
+.results-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    height: 60vh; /* Espacio específico para la lista */
+    overflow-y: auto; /* Habilita desplazamiento vertical */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.result-item {
+    padding: 10px;
+    margin: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
