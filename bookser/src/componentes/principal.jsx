@@ -13,7 +13,7 @@ const Bookser = () => {
             const response = await axios.get('https://www.googleapis.com/books/v1/volumes', {
                 params: {
                     q: input,
-                    maxResults: 10, // Número máximo de resultados
+                    maxResults: 5, // Número máximo de resultados
                 },
             });
             setResults(response.data.items || []);
@@ -28,10 +28,10 @@ const Bookser = () => {
             <input
                 type="text"
                 className="input"
-                placeholder="Enter your search here"
+                placeholder="Coloca el fragmento de tu libro aquí"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSearch()} // Busca al presionar Enter
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
             />
             <div className="results">
                 {results.map((book) => (

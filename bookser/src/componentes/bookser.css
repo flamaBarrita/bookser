@@ -1,32 +1,133 @@
+/* Reinicio de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuración de HTML y Body */
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a1a2a, #001f3f);
+    color: #ffffff;
+    display: flex; /* Asegura que el body ocupe toda la pantalla */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: flex-start; /* Mantiene el contenido al inicio */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    padding: 0;
+}
+
+/* Contenedor Principal */
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    padding: 20px;
     width: 100%;
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    overflow-y: hidden; /* Evita desbordamientos no deseados */
+    max-width: 1200px;
+    min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+    padding: 20px;
+    text-align: center;
+    overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede */
+    z-index: 1;
+    box-sizing: border-box;
 }
 
-.results-container {
+/* Título */
+.title {
+    font-size: 3rem;
+    color: #00d9ff;
+    text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff;
+    margin-bottom: 20px;
+    z-index: 10;
+}
+
+/* Campo de Entrada */
+.input {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    border: 2px solid #00d9ff;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #a8d6e8;
+    outline: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+}
+
+/* Resultados */
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     max-width: 1200px;
     margin-top: 20px;
-    height: 60vh; /* Espacio específico para la lista */
-    overflow-y: auto; /* Habilita desplazamiento vertical */
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+    z-index: 1;
 }
 
 .result-item {
-    padding: 10px;
-    margin: 5px 0;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid #00d9ff;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.result-item:last-child {
-    border-bottom: none;
+.result-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 217, 255, 0.7);
+}
+
+.result-item h3 {
+    font-size: 1.8rem;
+    color: #00d9ff;
+    margin: 0;
+    text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff;
+}
+
+.result-item p {
+    font-size: 1.2rem;
+    color: #a8d6e8;
+    margin: 5px 0 0;
+}
+
+/* Ajustes Responsivos: En pantallas pequeñas */
+@media (max-width: 768px) {
+    html, body {
+        flex-direction: column; /* Ajusta la disposición en pantallas pequeñas */
+        justify-content: flex-start;
+    }
+
+    .title {
+        font-size: 2rem; /* Reducir tamaño del título */
+    }
+
+    .input {
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+
+    .result-item {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .container {
+        padding: 10px;
+    }
 }
